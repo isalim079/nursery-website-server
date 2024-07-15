@@ -3,6 +3,7 @@ import express, { Application, Request, Response } from 'express';
 import { topBannerPlantDataRoutes } from './app/modules/topBanner/topBanner.route';
 import { plantsCategoryRoutes } from './app/modules/category/category.route';
 import { plantListsRoutes } from './app/modules/plantLists/plantList.route';
+import { cartItemsRoutes } from './app/modules/cartItems/cartItems.route';
 
 const app: Application = express();
 
@@ -14,6 +15,7 @@ app.use(cors());
 app.use('/', topBannerPlantDataRoutes)
 app.use('/', plantsCategoryRoutes)
 app.use('/', plantListsRoutes)
+app.use('/', cartItemsRoutes)
 
 
 app.get('/', (req: Request, res: Response) => {
