@@ -2,6 +2,7 @@ import cors from 'cors';
 import express, { Application, Request, Response } from 'express';
 import { topBannerPlantDataRoutes } from './app/modules/topBanner/topBanner.route';
 import { plantsCategoryRoutes } from './app/modules/category/category.route';
+import { plantListsRoutes } from './app/modules/plantLists/plantList.route';
 
 const app: Application = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 // application routes
 app.use('/', topBannerPlantDataRoutes)
 app.use('/', plantsCategoryRoutes)
+app.use('/', plantListsRoutes)
 
 
 app.get('/', (req: Request, res: Response) => {

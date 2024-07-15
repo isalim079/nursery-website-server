@@ -7,7 +7,7 @@ const getAllPlantsCategoryFromDB = async (rq: Request, res: Response) => {
         const result = await categoryPlantServices.getAllPlantsCategoryFromDB()
         res.status(200).json({
             success: true, 
-            message: 'Top Banner Plant data fetched successfully',
+            message: 'All category fetched successfully',
             data: result,
         })
     } catch (error) {
