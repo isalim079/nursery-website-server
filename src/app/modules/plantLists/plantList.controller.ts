@@ -30,7 +30,30 @@ const getSingleProductFromDB = async (req: Request, res: Response) => {
     }
   };
 
+  const updatePlantDataFromDB = async(req: Request, res: Response)=> {
+    try {
+        const { id } = req.params;
+        const updateInfo = req.body;
+
+        // console.log("updateInfo: =>", updateInfo);
+        // console.log("productId: =>", id);
+
+        const result = await plantListServices.updatePlantDataFromDB(
+          id,
+          updateInfo,
+        );
+        res.status(200).json({
+          success: true,
+          message: 'Plants updated successfully!',
+          data: result,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+}
+
 export const plantListsController = {
     getAllPlantListsFromDB,
     getSingleProductFromDB,
+    updatePlantDataFromDB
 }
