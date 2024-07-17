@@ -12,6 +12,8 @@ const getSinglePlantsFromDB = async (id: string) => {
     return result
 }
 
+
+
 export const plantListServices = {
     getAllPlantListsFromDB,
     getSinglePlantsFromDB,
