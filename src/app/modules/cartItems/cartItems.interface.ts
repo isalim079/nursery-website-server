@@ -8,4 +8,5 @@ export type CartItems = {
     quantity: number;
     categoryName: string;
     description: string;
+    isCheckout: boolean;
 }

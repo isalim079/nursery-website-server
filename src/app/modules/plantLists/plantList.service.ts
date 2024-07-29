@@ -15,10 +15,10 @@ const getSinglePlantsFromDB = async (id: string) => {
 
 const updatePlantDataFromDB = async (id: string, updateInfo: PlantList) => {
     const objectId = new Types.ObjectId(id);
- 
+
     // console.log("Updating Plant with ObjectId:", objectId);
     // console.log("Update Info:", updateInfo);
-    
+
     const updatedData = {
         $set: {
             title: updateInfo.title,
@@ -41,8 +41,21 @@ const updatePlantDataFromDB = async (id: string, updateInfo: PlantList) => {
     return result;
 };
 
+const deletePlantDataFromDB = async(id: string) => {
+    const objectId = new Types.ObjectId(id)
+    const result = await PlantListModel.deleteOne(objectId)
+    return result
+}
+
+const createAddPlantsDataIntoDB = async(plantsData: PlantList) => {
+    const result = await PlantListModel.create(plantsData)
+    return result
+}
+
 export const plantListServices = {
     getAllPlantListsFromDB,
     getSinglePlantsFromDB,
     updatePlantDataFromDB,
+    deletePlantDataFromDB,
+    createAddPlantsDataIntoDB,
 };

@@ -13,6 +13,7 @@ const createAddToCarts = async (req: Request, res: Response) => {
         quantity,
         categoryName,
         description,
+        isCheckout
     } = req.body;
 
     const findPlantId = await PlantListModel.findById(plantId);
@@ -46,6 +47,7 @@ const createAddToCarts = async (req: Request, res: Response) => {
         quantity,
         categoryName,
         description,
+        isCheckout
     });
 
     await newItem.save();
@@ -70,7 +72,10 @@ const getCartItemsFromDB = async (req: Request, res: Response) => {
 
 
 
+
+
 export const cartItemsController = {
     createAddToCarts,
     getCartItemsFromDB,
+
 };

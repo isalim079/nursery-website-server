@@ -10,6 +10,7 @@ const cartItemsSchema = new Schema<CartItems>({
     quantity: { type: Number, required: true },
     categoryName: { type: String, required: true },
     description: { type: String, required: true },
+    isCheckout: { type: Boolean, required: true },
 });
 
 const CartItemsModel = model<CartItems>("cartItems", cartItemsSchema);
